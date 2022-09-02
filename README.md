@@ -2,7 +2,7 @@
 
 シリアルデータのグラフ表示およびデータ保存のための クロスプラットフォーム GUI アプリケーション
 
-[![Arduino Serial Plot Recorder](./images/thumbnail.jpg)](https://youtu.be/4UQ7xl0r1vI)
+https://user-images.githubusercontent.com/47422498/188193987-20007fda-5fae-441a-a0bc-64eb2a458b2b.mov
 
 ## Overview
 
