@@ -6,7 +6,7 @@ https://user-images.githubusercontent.com/47422498/188193987-20007fda-5fae-441a-
 
 ## Overview
 
-Arduino からのシリアルデータを読み取り、グラフの表示およびデータを保存する PyQt ベースの汎用的なアプリケーションです。[解析アプリケーション](https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer)と組み合わせることで、リアルタイムにセンサー等のデータを解析できます。軽量なので、Raspberry Pi などでも動作します。
+Arduino からのシリアルデータを読み取り、グラフの表示およびデータを保存する PyQt ベースの汎用的なアプリケーションです。[Arduino Sensor Data Viewer](https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer)と組み合わせることで、リアルタイムにセンサー等のデータを解析できます。軽量なので、Raspberry Pi などでも動作します。
 
 ## Requirement
 
@@ -65,7 +65,7 @@ GUI のパラメータ説明
 - show ports からシリアルポートの変更が可能
 - number of channels: Arduino スケッチの測定チャンネル数に一致させる
 - sampling rate: Arduino スケッチのサンプリングレートに一致させる
-- display duration: 表示する時間の長さを変更できます。表示するデータ数が多くなると、動作が重くなります。長期的な変動を見る場合は[解析アプリケーション](https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer)と組み合わせて使用してください
+- display duration: 表示する時間の長さを変更できます。表示するデータ数が多くなると、動作が重くなります。長期的な変動を見る場合は[Arduino Sensor Data Viewer](https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer)と組み合わせて使用してください
 
 **Measurement パネル**
 
