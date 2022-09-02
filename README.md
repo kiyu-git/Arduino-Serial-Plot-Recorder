@@ -107,7 +107,7 @@ Note パネルは測定時のメモのためのパネルです。Note データ�
 
 ## Author
 
-質問等は twitter または[Issues](https://github.com/kiyu-git/Plant-Bioelectric-Potential-Sensor/issues)より
+質問等は twitter または[Issues](https://github.com/kiyu-git/Arduino-Serial-Plot-Recorder/issues)より
 
 twitter: https://twitter.com/kyu_yukirinrin
 
