@@ -105,6 +105,11 @@ Note パネルは測定時のメモのためのパネルです。Note データ�
 
 ## Reference
 
+## Donation
+
+[こちら](https://kiyu-shop.booth.pm/items/4140998)からプロジェクトへの寄付ができます。
+継続的なプロジェクト維持のため、ぜひ寄付をお願いいたします。
+
 ## Author
 
 質問等は twitter または[Issues](https://github.com/kiyu-git/Arduino-Serial-Plot-Recorder/issues)より
