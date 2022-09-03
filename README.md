@@ -8,6 +8,8 @@ https://user-images.githubusercontent.com/47422498/188193987-20007fda-5fae-441a-
 
 Arduino からのシリアルデータを読み取り、グラフの表示およびデータを保存する PyQt ベースの汎用的なアプリケーションです。[Arduino Sensor Data Viewer](https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer)と組み合わせることで、リアルタイムにセンサー等のデータを解析できます。軽量なので、Raspberry Pi などでも動作します。
 
+こちらからプロジェクトへの寄付ができます。 継続的なプロジェクト維持のため、ぜひ寄付をお願いいたします。
+
 ## Requirement
 
 ### Mac
