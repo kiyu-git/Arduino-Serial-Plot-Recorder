@@ -33,7 +33,7 @@
       <item>
        <widget class="QGroupBox" name="MesaurementSettingsBox">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -61,13 +61,13 @@
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
          </property>
          <property name="horizontalSpacing">
-          <number>-1</number>
+          <number>6</number>
          </property>
          <property name="verticalSpacing">
           <number>0</number>
@@ -75,10 +75,10 @@
          <item row="0" column="0">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <property name="leftMargin">
-            <number>7</number>
+            <number>0</number>
            </property>
            <property name="rightMargin">
-            <number>7</number>
+            <number>0</number>
            </property>
            <item>
             <widget class="QLabel" name="label">
@@ -121,13 +121,13 @@
             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
            </property>
            <property name="horizontalSpacing">
-            <number>-1</number>
+            <number>6</number>
            </property>
            <property name="verticalSpacing">
             <number>0</number>
            </property>
            <property name="leftMargin">
-            <number>7</number>
+            <number>0</number>
            </property>
            <item row="1" column="1">
             <widget class="QPushButton" name="InputChgSerialPort">
@@ -174,7 +174,7 @@
       <item>
        <widget class="QGroupBox" name="Measurement">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -182,62 +182,76 @@
         <property name="minimumSize">
          <size>
           <width>271</width>
-          <height>50</height>
+          <height>60</height>
          </size>
         </property>
         <property name="title">
          <string>Measurement</string>
         </property>
-        <widget class="QWidget" name="layoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>20</y>
-           <width>271</width>
-           <height>31</height>
-          </rect>
+        <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <property name="leftMargin">
+          <number>6</number>
          </property>
-         <layout class="QFormLayout" name="formLayout_6">
-          <property name="labelAlignment">
-           <set>Qt::AlignCenter</set>
-          </property>
-          <property name="formAlignment">
-           <set>Qt::AlignRight|Qt::AlignTop|Qt::AlignTrailing</set>
-          </property>
-          <property name="leftMargin">
-           <number>7</number>
-          </property>
-          <property name="topMargin">
-           <number>3</number>
-          </property>
-          <property name="rightMargin">
-           <number>14</number>
-          </property>
-          <property name="bottomMargin">
-           <number>3</number>
-          </property>
-          <item row="0" column="0">
-           <widget class="QPushButton" name="InputMeasureStart">
-            <property name="text">
-             <string>start</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QPushButton" name="InputMeasureStop">
-            <property name="text">
-             <string>stop</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
+          <number>0</number>
+         </property>
+         <item>
+          <widget class="QPushButton" name="InputMeasureStop">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>stop</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="InputMeasureStart">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="minimumSize">
+            <size>
+             <width>30</width>
+             <height>10</height>
+            </size>
+           </property>
+           <property name="maximumSize">
+            <size>
+             <width>300</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>start</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
        </widget>
       </item>
       <item>
        <widget class="QGroupBox" name="RecordSettings">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+         <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -245,7 +259,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>95</height>
+          <height>100</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -259,13 +273,13 @@
         </property>
         <layout class="QGridLayout" name="gridLayout_2">
          <property name="leftMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
-          <number>0</number>
+          <number>6</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
@@ -285,10 +299,10 @@
             <number>0</number>
            </property>
            <property name="leftMargin">
-            <number>7</number>
+            <number>0</number>
            </property>
            <property name="rightMargin">
-            <number>7</number>
+            <number>0</number>
            </property>
            <item row="0" column="0">
             <widget class="QLabel" name="label_4">
@@ -319,6 +333,12 @@
            </item>
            <item row="2" column="1">
             <widget class="QPushButton" name="InputChgSaveFolder">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
              <property name="text">
               <string>change folder</string>
              </property>
@@ -332,7 +352,7 @@
       <item>
        <widget class="QGroupBox" name="Record">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="Minimum">
+         <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -340,199 +360,211 @@
         <property name="minimumSize">
          <size>
           <width>271</width>
-          <height>135</height>
+          <height>180</height>
          </size>
         </property>
         <property name="title">
          <string>Record</string>
         </property>
-        <widget class="QWidget" name="layoutWidget">
-         <property name="geometry">
-          <rect>
-           <x>0</x>
-           <y>20</y>
-           <width>275</width>
-           <height>280</height>
-          </rect>
+        <layout class="QVBoxLayout" name="verticalLayout_4">
+         <property name="spacing">
+          <number>0</number>
          </property>
-         <layout class="QFormLayout" name="formLayout_3">
-          <property name="labelAlignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
-          </property>
-          <property name="formAlignment">
-           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-          </property>
-          <property name="verticalSpacing">
-           <number>0</number>
-          </property>
-          <property name="leftMargin">
-           <number>7</number>
-          </property>
-          <property name="rightMargin">
-           <number>7</number>
-          </property>
-          <property name="bottomMargin">
-           <number>0</number>
-          </property>
-          <item row="3" column="0">
-           <widget class="QLabel" name="label_7">
-            <property name="text">
-             <string>elapsed time</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="InputElapsedTime">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="0">
-           <widget class="QLabel" name="label_8">
-            <property name="text">
-             <string>nubmer of samples</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1">
-           <widget class="QLabel" name="InputNumSamples">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="0">
-           <widget class="QLabel" name="label_9">
-            <property name="text">
-             <string>folder size</string>
-            </property>
-           </widget>
-          </item>
-          <item row="5" column="1">
-           <widget class="QLabel" name="InputFolderSize">
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QLabel" name="label_6">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>start</string>
-            </property>
-           </widget>
-          </item>
-          <item row="6" column="1">
-           <widget class="QPushButton" name="InputOpenFolder">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Minimum" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string>open folder</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <layout class="QFormLayout" name="formLayout_2">
-            <property name="labelAlignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <property name="formAlignment">
-             <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-            </property>
-            <property name="leftMargin">
-             <number>7</number>
-            </property>
-            <property name="topMargin">
-             <number>0</number>
-            </property>
-            <property name="rightMargin">
-             <number>7</number>
-            </property>
-            <property name="bottomMargin">
-             <number>5</number>
-            </property>
-            <item row="0" column="0">
-             <widget class="QPushButton" name="InputRecordStart">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>30</width>
-                <height>10</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>start</string>
-              </property>
-             </widget>
-            </item>
-            <item row="0" column="1">
-             <widget class="QPushButton" name="InputRecordStop">
-              <property name="sizePolicy">
-               <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="minimumSize">
-               <size>
-                <width>10</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>stop</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="InputSaveDir">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </widget>
-      </item>
-      <item>
-       <widget class="QGroupBox" name="NoteBox">
-        <property name="title">
-         <string>Note</string>
-        </property>
-        <layout class="QGridLayout" name="gridLayout_4">
          <property name="leftMargin">
-          <number>7</number>
+          <number>6</number>
          </property>
          <property name="topMargin">
           <number>0</number>
          </property>
          <property name="rightMargin">
+          <number>6</number>
+         </property>
+         <property name="bottomMargin">
           <number>0</number>
+         </property>
+         <item>
+          <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="topMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QPushButton" name="InputRecordStart">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>30</width>
+               <height>10</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>start</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="InputRecordStop">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize">
+              <size>
+               <width>10</width>
+               <height>30</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>stop</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <layout class="QFormLayout" name="formLayout_3">
+           <property name="labelAlignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+           </property>
+           <property name="formAlignment">
+            <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
+           </property>
+           <property name="horizontalSpacing">
+            <number>0</number>
+           </property>
+           <property name="verticalSpacing">
+            <number>0</number>
+           </property>
+           <property name="leftMargin">
+            <number>0</number>
+           </property>
+           <property name="rightMargin">
+            <number>0</number>
+           </property>
+           <property name="bottomMargin">
+            <number>0</number>
+           </property>
+           <item row="0" column="1">
+            <widget class="QLabel" name="InputSaveDir">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Expanding" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_6">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>start</string>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="1">
+            <widget class="QLabel" name="InputElapsedTime">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QLabel" name="label_7">
+             <property name="text">
+              <string>elapsed time</string>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="1">
+            <widget class="QLabel" name="InputNumSamples">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QLabel" name="label_8">
+             <property name="text">
+              <string>nubmer of samples</string>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="1">
+            <widget class="QLabel" name="InputFolderSize">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QLabel" name="label_9">
+             <property name="text">
+              <string>folder size</string>
+             </property>
+            </widget>
+           </item>
+           <item row="4" column="1">
+            <widget class="QPushButton" name="InputOpenFolder">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text">
+              <string>open folder</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="NoteBox">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="title">
+         <string>Note</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_4">
+         <property name="leftMargin">
+          <number>6</number>
+         </property>
+         <property name="topMargin">
+          <number>0</number>
+         </property>
+         <property name="rightMargin">
+          <number>6</number>
          </property>
          <property name="bottomMargin">
           <number>0</number>
@@ -675,7 +707,14 @@
             </widget>
            </item>
            <item>
-            <widget class="QLineEdit" name="InputPlant"/>
+            <widget class="QLineEdit" name="InputPlant">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+            </widget>
            </item>
           </layout>
          </item>
@@ -715,7 +754,7 @@
      <x>0</x>
      <y>0</y>
      <width>1086</width>
-     <height>37</height>
+     <height>27</height>
     </rect>
    </property>
   </widget>
