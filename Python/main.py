@@ -9,10 +9,15 @@ from os.path import expanduser
 import numpy as np
 import pyqtgraph as pg
 import serial
-from PyQt5 import QtCore, QtWidgets, uic
-from PyQt5.QtCore import pyqtSignal
+from PySide6 import QtCore, QtWidgets
+from PySide6.QtCore import Signal
 
 import tools
+from UI.Ui_Dialog import Ui_Dialog
+
+# from PyQt5 import QtCore, QtWidgets, uic
+# from PyQt5.QtCore import pyqtSignal
+from UI.Ui_MainWindow import Ui_MainWindow
 
 """
 Set Logger
@@ -62,101 +67,103 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None, *args, **kwargs):
         super(MainWindow, self).__init__(parent, *args, **kwargs)
-        uic.loadUi("./UI/main_window.ui", self)
         # uic.loadUi("./UI/main_window.ui", self)
+        self.ui = Ui_MainWindow()
+        self.ui.setupUi(self)
+
         self.setWindowTitle("Measurement")
-        self.InputMeasureStop.setEnabled(False)
-        self.InputOpenFolder.setEnabled(False)
-        self.RecordSettings.setEnabled(False)
-        self.Record.setEnabled(False)
-        self.NoteBox.setEnabled(False)
+        self.ui.InputMeasureStop.setEnabled(False)
+        self.ui.InputOpenFolder.setEnabled(False)
+        self.ui.RecordSettings.setEnabled(False)
+        self.ui.Record.setEnabled(False)
+        self.ui.NoteBox.setEnabled(False)
 
         # variable
         home = expanduser("~")
         default_save_dir = "Documents/PlantAnalysis/"
         self.path_save_base_folder = os.path.join(home, default_save_dir)
-        self.InputSaveDirPath.setText(self.path_save_base_folder)
+        self.ui.InputSaveDirPath.setText(self.path_save_base_folder)
 
         # logger
-        dashLoggerHandler = DashLoggerHandler(self.statusbar)
+        dashLoggerHandler = DashLoggerHandler(self.ui.statusbar)
         logger.addHandler(dashLoggerHandler)
 
         # button events
         self.cw = ConnectionWindow(parent=self)
-        self.InputChgSerialPort.clicked.connect(
+        self.ui.InputChgSerialPort.clicked.connect(
             lambda: self.cw.show_window(self.serial_port)
         )
-        self.InputMeasureStart.clicked.connect(lambda: self.measure_start())
-        self.InputMeasureStop.clicked.connect(lambda: self.measure_stop())
+        self.ui.InputMeasureStart.clicked.connect(lambda: self.measure_start())
+        self.ui.InputMeasureStop.clicked.connect(lambda: self.measure_stop())
 
-        self.InputChgSaveFolder.clicked.connect(lambda: self.get_folder())
+        self.ui.InputChgSaveFolder.clicked.connect(lambda: self.get_folder())
 
-        self.InputRecordStart.clicked.connect(lambda: self.record_start())
-        self.InputRecordStop.clicked.connect(lambda: self.record_stop())
+        self.ui.InputRecordStart.clicked.connect(lambda: self.record_start())
+        self.ui.InputRecordStop.clicked.connect(lambda: self.record_stop())
 
         self.settings = self.init_ui(self.settings)
 
     def init_ui(self, settings):
-        self.InputNumChannels.setValue(settings["num_channels"])
-        self.InputNumChannels.setMinimum(1)
-        self.InputNumChannels.valueChanged.connect(
+        self.ui.InputNumChannels.setValue(settings["num_channels"])
+        self.ui.InputNumChannels.setMinimum(1)
+        self.ui.InputNumChannels.valueChanged.connect(
             lambda value: self.chg_settings("num_channels", value)
         )
 
-        self.InputSamplingRate.setRange(1, 1000)
-        self.InputSamplingRate.setValue(settings["sampling_rate"])
-        self.InputSamplingRate.setSingleStep(10)
-        self.InputSamplingRate.valueChanged.connect(
+        self.ui.InputSamplingRate.setRange(1, 1000)
+        self.ui.InputSamplingRate.setValue(settings["sampling_rate"])
+        self.ui.InputSamplingRate.setSingleStep(10)
+        self.ui.InputSamplingRate.valueChanged.connect(
             lambda value: self.chg_settings("sampling_rate", value)
         )
 
-        self.InputRecordInterval.setValue(settings["log_interval"])
-        self.InputRecordInterval.setRange(1, settings["display_duration"])
-        self.InputRecordInterval.valueChanged.connect(
+        self.ui.InputRecordInterval.setValue(settings["log_interval"])
+        self.ui.InputRecordInterval.setRange(1, settings["display_duration"])
+        self.ui.InputRecordInterval.valueChanged.connect(
             lambda value: self.chg_settings("log_interval", value)
         )
-        self.InputRecordInterval.valueChanged.connect(
-            lambda value: self.InputDisplayDuration.setMinimum(value)
+        self.ui.InputRecordInterval.valueChanged.connect(
+            lambda value: self.ui.InputDisplayDuration.setMinimum(value)
         )
 
-        self.InputDisplayDuration.setValue(settings["display_duration"])
-        self.InputDisplayDuration.setMinimum(settings["log_interval"])
-        self.InputDisplayDuration.setSingleStep(5)
-        self.InputDisplayDuration.valueChanged.connect(
+        self.ui.InputDisplayDuration.setValue(settings["display_duration"])
+        self.ui.InputDisplayDuration.setMinimum(settings["log_interval"])
+        self.ui.InputDisplayDuration.setSingleStep(5)
+        self.ui.InputDisplayDuration.valueChanged.connect(
             lambda value: self.chg_settings("display_duration", value)
         )
-        self.InputDisplayDuration.valueChanged.connect(
-            lambda value: self.InputRecordInterval.setMaximum(value)
+        self.ui.InputDisplayDuration.valueChanged.connect(
+            lambda value: self.ui.InputRecordInterval.setMaximum(value)
         )
 
-        self.InputPlace.setText(settings["place"])
-        self.InputPlace.textChanged.connect(
+        self.ui.InputPlace.setText(settings["place"])
+        self.ui.InputPlace.textChanged.connect(
             lambda value: self.chg_settings("place", value)
         )
 
-        self.InputTemperature.setValue(settings["temperature"])
-        self.InputTemperature.valueChanged.connect(
+        self.ui.InputTemperature.setValue(settings["temperature"])
+        self.ui.InputTemperature.valueChanged.connect(
             lambda value: self.chg_settings("temperature", value)
         )
 
-        self.InputHumidity.setValue(settings["humidity"])
-        self.InputHumidity.valueChanged.connect(
+        self.ui.InputHumidity.setValue(settings["humidity"])
+        self.ui.InputHumidity.valueChanged.connect(
             lambda value: self.chg_settings("humidity", value)
         )
 
-        self.InputPlant.setText(settings["plant"])
-        self.InputPlant.textChanged.connect(
+        self.ui.InputPlant.setText(settings["plant"])
+        self.ui.InputPlant.textChanged.connect(
             lambda value: self.chg_settings("plant", value)
         )
 
-        self.InputPurpose.setPlainText(settings["purpose"])
-        self.InputPurpose.textChanged.connect(
-            lambda: self.chg_settings("purpose", self.InputPurpose.toPlainText())
+        self.ui.InputPurpose.setPlainText(settings["purpose"])
+        self.ui.InputPurpose.textChanged.connect(
+            lambda: self.chg_settings("purpose", self.ui.InputPurpose.toPlainText())
         )
 
-        self.InputNote.setPlainText(settings["note"])
-        self.InputNote.textChanged.connect(
-            lambda: self.chg_settings("note", self.InputNote.toPlainText())
+        self.ui.InputNote.setPlainText(settings["note"])
+        self.ui.InputNote.textChanged.connect(
+            lambda: self.chg_settings("note", self.ui.InputNote.toPlainText())
         )
 
         return settings
@@ -172,7 +179,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def set_serial_port(self, serial_port):
         self.serial_port = serial_port
-        self.InputSerialPort.setText(serial_port)
+        self.ui.InputSerialPort.setText(serial_port)
 
     def measure_start(self):
         try:
@@ -186,16 +193,16 @@ class MainWindow(QtWidgets.QMainWindow):
             self.store_data.start()
 
             self.draw_graph = DrawGraph(
-                self.GraphicsLayoutWidget, self.store_data, self.settings
+                self.ui.GraphicsLayoutWidget, self.store_data, self.settings
             )
 
-            self.InputMeasureStart.setEnabled(False)
-            self.InputMeasureStop.setEnabled(True)
-            self.MesaurementSettingsBox.setEnabled(False)
-            self.RecordSettings.setEnabled(True)
-            self.InputRecordStop.setEnabled(False)
-            self.Record.setEnabled(True)
-            self.InputOpenFolder.setEnabled(False)
+            self.ui.InputMeasureStart.setEnabled(False)
+            self.ui.InputMeasureStop.setEnabled(True)
+            self.ui.MesaurementSettingsBox.setEnabled(False)
+            self.ui.RecordSettings.setEnabled(True)
+            self.ui.InputRecordStop.setEnabled(False)
+            self.ui.Record.setEnabled(True)
+            self.ui.InputOpenFolder.setEnabled(False)
         except serial.SerialException:
             logger.info(f"指定されたシリアルポートが見つかりません。USB接続を確認してください。")
             self.cw.show_window(self.serial_port)
@@ -208,61 +215,61 @@ class MainWindow(QtWidgets.QMainWindow):
         if hasattr(self, "save_data"):
             self.record_stop()
         logger.info("測定を停止しました。")
-        self.InputMeasureStart.setEnabled(True)
-        self.InputMeasureStop.setEnabled(False)
-        self.MesaurementSettingsBox.setEnabled(True)
-        self.RecordSettings.setEnabled(False)
-        self.Record.setEnabled(False)
+        self.ui.InputMeasureStart.setEnabled(True)
+        self.ui.InputMeasureStop.setEnabled(False)
+        self.ui.MesaurementSettingsBox.setEnabled(True)
+        self.ui.RecordSettings.setEnabled(False)
+        self.ui.Record.setEnabled(False)
 
     def record_start(self):
         self.save_data = SaveData(
-            self.GraphicsLayoutWidget,
+            self.ui.GraphicsLayoutWidget,
             self.store_data,
             self.settings,
             self.path_save_base_folder,
         )
         self.save_data.console.connect(lambda msg: logger.info(msg))
         self.save_data.run()
-        self.InputSaveDir.setText(self.save_data.get_folder_name())
-        self.InputOpenFolder.clicked.connect(
+        self.ui.InputSaveDir.setText(self.save_data.get_folder_name())
+        self.ui.InputOpenFolder.clicked.connect(
             lambda: self.open_folder(self.save_data.get_folder_path())
         )
         self.save_data.save_settings(self.settings)
         self.save_data.singal.connect(lambda data: self.update_record_info(data))
 
         settings = self.init_settings.copy()
-        self.InputPlace.setText(settings["place"])
-        self.InputTemperature.setValue(settings["temperature"])
-        self.InputHumidity.setValue(settings["humidity"])
-        self.InputPlant.setText(settings["plant"])
-        self.InputPurpose.setPlainText(settings["purpose"])
-        self.InputNote.setPlainText(settings["note"])
+        self.ui.InputPlace.setText(settings["place"])
+        self.ui.InputTemperature.setValue(settings["temperature"])
+        self.ui.InputHumidity.setValue(settings["humidity"])
+        self.ui.InputPlant.setText(settings["plant"])
+        self.ui.InputPurpose.setPlainText(settings["purpose"])
+        self.ui.InputNote.setPlainText(settings["note"])
 
-        self.InputRecordStart.setEnabled(False)
-        self.InputRecordStop.setEnabled(True)
-        self.InputOpenFolder.setEnabled(True)
-        self.NoteBox.setEnabled(True)
+        self.ui.InputRecordStart.setEnabled(False)
+        self.ui.InputRecordStop.setEnabled(True)
+        self.ui.InputOpenFolder.setEnabled(True)
+        self.ui.NoteBox.setEnabled(True)
 
     def record_stop(self):
         self.save_data.stop()
-        self.InputElapsedTime.setText("")
-        self.InputNumSamples.setText("")
-        self.InputFolderSize.setText("")
-        self.InputSaveDir.setText("")
+        self.ui.InputElapsedTime.setText("")
+        self.ui.InputNumSamples.setText("")
+        self.ui.InputFolderSize.setText("")
+        self.ui.InputSaveDir.setText("")
 
-        self.InputRecordStart.setEnabled(True)
-        self.InputRecordStop.setEnabled(False)
-        self.InputOpenFolder.setEnabled(False)
-        self.NoteBox.setEnabled(False)
+        self.ui.InputRecordStart.setEnabled(True)
+        self.ui.InputRecordStop.setEnabled(False)
+        self.ui.InputOpenFolder.setEnabled(False)
+        self.ui.NoteBox.setEnabled(False)
 
     def lost_usb_connection(self):
         self.measure_stop()
         self.cw.show_window(self.serial_port)
 
     def update_record_info(self, data):
-        self.InputElapsedTime.setText(data["elapsed_time"])
-        self.InputNumSamples.setText(data["num_samples"])
-        self.InputFolderSize.setText(data["folder_size"])
+        self.ui.InputElapsedTime.setText(data["elapsed_time"])
+        self.ui.InputNumSamples.setText(data["num_samples"])
+        self.ui.InputFolderSize.setText(data["folder_size"])
 
     def open_folder(self, path):
         os.system(f"open {path}")
@@ -273,7 +280,7 @@ class MainWindow(QtWidgets.QMainWindow):
         )
         if path_save_base_folder != "":
             self.path_save_base_folder = path_save_base_folder
-            self.InputSaveDirPath.setText(self.path_save_base_folder)
+            self.ui.InputSaveDirPath.setText(self.path_save_base_folder)
 
     def on_error(self, _error_code):
         if _error_code == "01":
@@ -292,24 +299,26 @@ class ConnectionWindow(QtWidgets.QDialog):
     def __init__(self, parent=None, *args, **kwargs):
         super(ConnectionWindow, self).__init__(parent, *args, **kwargs)
         self.parent = parent
-        uic.loadUi("./UI/connection.ui", self)
         # uic.loadUi("./UI/connection.ui", self)
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
+
         self.setWindowTitle("")
         self.setModal(True)
-        self.InputSelect.clicked.connect(lambda: self.select())
-        self.InputSerialPorts.currentTextChanged.connect(
+        self.ui.InputSelect.clicked.connect(lambda: self.select())
+        self.ui.InputSerialPorts.currentTextChanged.connect(
             lambda text: self.reload_serial_port(text)
         )
 
     def show_window(self, current_serial_port):
         serial_ports = tools.get_serial_ports()
-        self.InputSerialPorts.clear()
-        self.InputSerialPorts.addItems(serial_ports)
-        self.InputSerialPorts.addItem("[Research serial ports]")
+        self.ui.InputSerialPorts.clear()
+        self.ui.InputSerialPorts.addItems(serial_ports)
+        self.ui.InputSerialPorts.addItem("[Research serial ports]")
         if current_serial_port in serial_ports:
-            self.InputSerialPorts.setCurrentText(current_serial_port)
+            self.ui.InputSerialPorts.setCurrentText(current_serial_port)
         else:
-            self.InputSerialPorts.setCurrentText(serial_ports[0])
+            self.ui.InputSerialPorts.setCurrentText(serial_ports[0])
         self.show()
 
     def reload_serial_port(self, text):
@@ -317,7 +326,7 @@ class ConnectionWindow(QtWidgets.QDialog):
             self.show_window("")
 
     def select(self):
-        self.parent.set_serial_port(self.InputSerialPorts.currentText())
+        self.parent.set_serial_port(self.ui.InputSerialPorts.currentText())
         self.close()
 
     def closeEvent(self, event):
@@ -335,8 +344,8 @@ Data processing
 class StoreData(QtCore.QThread):
     # singal = QtCore.Signal(str)
     # console = QtCore.Signal(str)
-    singal = pyqtSignal(str)
-    console = pyqtSignal(str)
+    singal = Signal(str)
+    console = Signal(str)
 
     def __init__(self, arduino, settings, parent=None):
         QtCore.QThread.__init__(self, parent)
@@ -473,8 +482,8 @@ Save data
 class SaveData(QtCore.QObject):
     start_flg = False
     num_sample_points = 0
-    singal = pyqtSignal(dict)
-    console = pyqtSignal(str)
+    singal = Signal(dict)
+    console = Signal(str)
 
     def __init__(self, parent, store_data_class, settings, _path_save_base_folder):
         QtCore.QObject.__init__(self)
@@ -553,4 +562,4 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     myWin = MainWindow()
     myWin.show_windows()
-    sys.exit(app.exec_())
+    sys.exit(app.exec())
