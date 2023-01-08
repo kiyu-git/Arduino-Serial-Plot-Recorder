@@ -62,7 +62,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def __init__(self, parent=None, *args, **kwargs):
         super(MainWindow, self).__init__(parent, *args, **kwargs)
-        uic.loadUi("./UI/main_window.ui", self)
+        uic.loadUi("./UI/Ui_MainWindow.ui", self)
         # uic.loadUi("./UI/main_window.ui", self)
         self.setWindowTitle("Measurement")
         self.InputMeasureStop.setEnabled(False)
@@ -292,7 +292,7 @@ class ConnectionWindow(QtWidgets.QDialog):
     def __init__(self, parent=None, *args, **kwargs):
         super(ConnectionWindow, self).__init__(parent, *args, **kwargs)
         self.parent = parent
-        uic.loadUi("./UI/connection.ui", self)
+        uic.loadUi("./UI/Ui_Dialog.ui", self)
         # uic.loadUi("./UI/connection.ui", self)
         self.setWindowTitle("")
         self.setModal(True)
