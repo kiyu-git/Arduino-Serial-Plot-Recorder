@@ -30,6 +30,9 @@
     </item>
     <item row="0" column="1">
      <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="spacing">
+       <number>6</number>
+      </property>
       <item>
        <widget class="QGroupBox" name="MesaurementSettingsBox">
         <property name="sizePolicy">
@@ -251,7 +254,7 @@
       <item>
        <widget class="QGroupBox" name="RecordSettings">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Maximum" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -259,7 +262,7 @@
         <property name="minimumSize">
          <size>
           <width>0</width>
-          <height>100</height>
+          <height>90</height>
          </size>
         </property>
         <property name="maximumSize">
@@ -352,7 +355,7 @@
       <item>
        <widget class="QGroupBox" name="Record">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Expanding" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -360,7 +363,7 @@
         <property name="minimumSize">
          <size>
           <width>271</width>
-          <height>180</height>
+          <height>150</height>
          </size>
         </property>
         <property name="title">
@@ -384,6 +387,12 @@
          </property>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
+           <property name="spacing">
+            <number>6</number>
+           </property>
+           <property name="sizeConstraint">
+            <enum>QLayout::SetDefaultConstraint</enum>
+           </property>
            <property name="leftMargin">
             <number>0</number>
            </property>
@@ -410,6 +419,12 @@
                <height>10</height>
               </size>
              </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
+              </size>
+             </property>
              <property name="text">
               <string>start</string>
              </property>
@@ -425,8 +440,14 @@
              </property>
              <property name="minimumSize">
               <size>
-               <width>10</width>
-               <height>30</height>
+               <width>30</width>
+               <height>10</height>
+              </size>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>16777215</width>
+               <height>16777215</height>
               </size>
              </property>
              <property name="text">
@@ -548,7 +569,7 @@
       <item>
        <widget class="QGroupBox" name="NoteBox">
         <property name="sizePolicy">
-         <sizepolicy hsizetype="Preferred" vsizetype="MinimumExpanding">
+         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Preferred">
           <horstretch>0</horstretch>
           <verstretch>0</verstretch>
          </sizepolicy>
@@ -754,7 +775,7 @@
      <x>0</x>
      <y>0</y>
      <width>1086</width>
-     <height>27</height>
+     <height>37</height>
     </rect>
    </property>
   </widget>

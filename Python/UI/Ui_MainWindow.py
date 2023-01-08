@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'main_window.ui'
+## Form generated from reading UI file 'Ui_MainWindow.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.4.1
 ##
@@ -49,6 +49,7 @@ from PySide6.QtWidgets import (
     QGroupBox,
     QHBoxLayout,
     QLabel,
+    QLayout,
     QLineEdit,
     QMainWindow,
     QMenuBar,
@@ -79,10 +80,11 @@ class Ui_MainWindow(object):
         self.gridLayout.addItem(self.horizontalSpacer_2, 0, 0, 1, 1)
 
         self.verticalLayout = QVBoxLayout()
+        self.verticalLayout.setSpacing(6)
         self.verticalLayout.setObjectName("verticalLayout")
         self.MesaurementSettingsBox = QGroupBox(self.centralwidget)
         self.MesaurementSettingsBox.setObjectName("MesaurementSettingsBox")
-        sizePolicy = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Fixed)
+        sizePolicy = QSizePolicy(QSizePolicy.MinimumExpanding, QSizePolicy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(
@@ -94,12 +96,12 @@ class Ui_MainWindow(object):
         self.MesaurementSettingsBox.setCheckable(False)
         self.gridLayout_3 = QGridLayout(self.MesaurementSettingsBox)
         self.gridLayout_3.setObjectName("gridLayout_3")
-        self.gridLayout_3.setHorizontalSpacing(-1)
+        self.gridLayout_3.setHorizontalSpacing(6)
         self.gridLayout_3.setVerticalSpacing(0)
-        self.gridLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_3.setContentsMargins(0, 0, 6, 0)
         self.horizontalLayout = QHBoxLayout()
         self.horizontalLayout.setObjectName("horizontalLayout")
-        self.horizontalLayout.setContentsMargins(7, -1, 7, -1)
+        self.horizontalLayout.setContentsMargins(0, -1, 0, -1)
         self.label = QLabel(self.MesaurementSettingsBox)
         self.label.setObjectName("label")
 
@@ -124,9 +126,9 @@ class Ui_MainWindow(object):
             Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter
         )
         self.formLayout.setFormAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
-        self.formLayout.setHorizontalSpacing(-1)
+        self.formLayout.setHorizontalSpacing(6)
         self.formLayout.setVerticalSpacing(0)
-        self.formLayout.setContentsMargins(7, -1, -1, -1)
+        self.formLayout.setContentsMargins(0, -1, -1, -1)
         self.InputChgSerialPort = QPushButton(self.MesaurementSettingsBox)
         self.InputChgSerialPort.setObjectName("InputChgSerialPort")
 
@@ -168,49 +170,50 @@ class Ui_MainWindow(object):
 
         self.Measurement = QGroupBox(self.centralwidget)
         self.Measurement.setObjectName("Measurement")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Minimum)
+        sizePolicy.setHeightForWidth(self.Measurement.sizePolicy().hasHeightForWidth())
+        self.Measurement.setSizePolicy(sizePolicy)
+        self.Measurement.setMinimumSize(QSize(271, 60))
+        self.horizontalLayout_4 = QHBoxLayout(self.Measurement)
+        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.horizontalLayout_4.setContentsMargins(6, 0, 6, 0)
+        self.InputMeasureStop = QPushButton(self.Measurement)
+        self.InputMeasureStop.setObjectName("InputMeasureStop")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.Measurement.sizePolicy().hasHeightForWidth())
-        self.Measurement.setSizePolicy(sizePolicy1)
-        self.Measurement.setMinimumSize(QSize(271, 50))
-        self.layoutWidget = QWidget(self.Measurement)
-        self.layoutWidget.setObjectName("layoutWidget")
-        self.layoutWidget.setGeometry(QRect(0, 20, 271, 31))
-        self.formLayout_6 = QFormLayout(self.layoutWidget)
-        self.formLayout_6.setObjectName("formLayout_6")
-        self.formLayout_6.setLabelAlignment(Qt.AlignCenter)
-        self.formLayout_6.setFormAlignment(
-            Qt.AlignRight | Qt.AlignTop | Qt.AlignTrailing
+        sizePolicy1.setHeightForWidth(
+            self.InputMeasureStop.sizePolicy().hasHeightForWidth()
         )
-        self.formLayout_6.setContentsMargins(7, 3, 14, 3)
-        self.InputMeasureStart = QPushButton(self.layoutWidget)
+        self.InputMeasureStop.setSizePolicy(sizePolicy1)
+        self.InputMeasureStop.setMinimumSize(QSize(30, 10))
+
+        self.horizontalLayout_4.addWidget(self.InputMeasureStop)
+
+        self.InputMeasureStart = QPushButton(self.Measurement)
         self.InputMeasureStart.setObjectName("InputMeasureStart")
+        sizePolicy1.setHeightForWidth(
+            self.InputMeasureStart.sizePolicy().hasHeightForWidth()
+        )
+        self.InputMeasureStart.setSizePolicy(sizePolicy1)
+        self.InputMeasureStart.setMinimumSize(QSize(30, 10))
+        self.InputMeasureStart.setMaximumSize(QSize(300, 16777215))
 
-        self.formLayout_6.setWidget(0, QFormLayout.LabelRole, self.InputMeasureStart)
-
-        self.InputMeasureStop = QPushButton(self.layoutWidget)
-        self.InputMeasureStop.setObjectName("InputMeasureStop")
-
-        self.formLayout_6.setWidget(0, QFormLayout.FieldRole, self.InputMeasureStop)
+        self.horizontalLayout_4.addWidget(self.InputMeasureStart)
 
         self.verticalLayout.addWidget(self.Measurement)
 
         self.RecordSettings = QGroupBox(self.centralwidget)
         self.RecordSettings.setObjectName("RecordSettings")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Maximum, QSizePolicy.Fixed)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(
+        sizePolicy.setHeightForWidth(
             self.RecordSettings.sizePolicy().hasHeightForWidth()
         )
-        self.RecordSettings.setSizePolicy(sizePolicy2)
-        self.RecordSettings.setMinimumSize(QSize(0, 95))
+        self.RecordSettings.setSizePolicy(sizePolicy)
+        self.RecordSettings.setMinimumSize(QSize(0, 90))
         self.RecordSettings.setMaximumSize(QSize(300, 16777215))
         self.gridLayout_2 = QGridLayout(self.RecordSettings)
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.gridLayout_2.setVerticalSpacing(0)
-        self.gridLayout_2.setContentsMargins(0, 0, 0, 0)
+        self.gridLayout_2.setContentsMargins(6, 0, 6, 0)
         self.formLayout_7 = QFormLayout()
         self.formLayout_7.setObjectName("formLayout_7")
         self.formLayout_7.setLabelAlignment(
@@ -218,7 +221,7 @@ class Ui_MainWindow(object):
         )
         self.formLayout_7.setFormAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
         self.formLayout_7.setVerticalSpacing(0)
-        self.formLayout_7.setContentsMargins(7, -1, 7, -1)
+        self.formLayout_7.setContentsMargins(0, -1, 0, -1)
         self.label_4 = QLabel(self.RecordSettings)
         self.label_4.setObjectName("label_4")
 
@@ -244,6 +247,10 @@ class Ui_MainWindow(object):
 
         self.InputChgSaveFolder = QPushButton(self.RecordSettings)
         self.InputChgSaveFolder.setObjectName("InputChgSaveFolder")
+        sizePolicy1.setHeightForWidth(
+            self.InputChgSaveFolder.sizePolicy().hasHeightForWidth()
+        )
+        self.InputChgSaveFolder.setSizePolicy(sizePolicy1)
 
         self.formLayout_7.setWidget(2, QFormLayout.FieldRole, self.InputChgSaveFolder)
 
@@ -253,51 +260,64 @@ class Ui_MainWindow(object):
 
         self.Record = QGroupBox(self.centralwidget)
         self.Record.setObjectName("Record")
-        sizePolicy1.setHeightForWidth(self.Record.sizePolicy().hasHeightForWidth())
-        self.Record.setSizePolicy(sizePolicy1)
-        self.Record.setMinimumSize(QSize(271, 135))
-        self.layoutWidget1 = QWidget(self.Record)
-        self.layoutWidget1.setObjectName("layoutWidget1")
-        self.layoutWidget1.setGeometry(QRect(0, 20, 275, 280))
-        self.formLayout_3 = QFormLayout(self.layoutWidget1)
+        sizePolicy.setHeightForWidth(self.Record.sizePolicy().hasHeightForWidth())
+        self.Record.setSizePolicy(sizePolicy)
+        self.Record.setMinimumSize(QSize(271, 150))
+        self.verticalLayout_4 = QVBoxLayout(self.Record)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(6, 0, 6, 0)
+        self.horizontalLayout_3 = QHBoxLayout()
+        self.horizontalLayout_3.setSpacing(6)
+        self.horizontalLayout_3.setObjectName("horizontalLayout_3")
+        self.horizontalLayout_3.setSizeConstraint(QLayout.SetDefaultConstraint)
+        self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
+        self.InputRecordStart = QPushButton(self.Record)
+        self.InputRecordStart.setObjectName("InputRecordStart")
+        sizePolicy1.setHeightForWidth(
+            self.InputRecordStart.sizePolicy().hasHeightForWidth()
+        )
+        self.InputRecordStart.setSizePolicy(sizePolicy1)
+        self.InputRecordStart.setMinimumSize(QSize(30, 10))
+        self.InputRecordStart.setMaximumSize(QSize(16777215, 16777215))
+
+        self.horizontalLayout_3.addWidget(self.InputRecordStart)
+
+        self.InputRecordStop = QPushButton(self.Record)
+        self.InputRecordStop.setObjectName("InputRecordStop")
+        sizePolicy1.setHeightForWidth(
+            self.InputRecordStop.sizePolicy().hasHeightForWidth()
+        )
+        self.InputRecordStop.setSizePolicy(sizePolicy1)
+        self.InputRecordStop.setMinimumSize(QSize(30, 10))
+        self.InputRecordStop.setMaximumSize(QSize(16777215, 16777215))
+
+        self.horizontalLayout_3.addWidget(self.InputRecordStop)
+
+        self.verticalLayout_4.addLayout(self.horizontalLayout_3)
+
+        self.formLayout_3 = QFormLayout()
         self.formLayout_3.setObjectName("formLayout_3")
         self.formLayout_3.setLabelAlignment(
             Qt.AlignLeading | Qt.AlignLeft | Qt.AlignVCenter
         )
         self.formLayout_3.setFormAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
+        self.formLayout_3.setHorizontalSpacing(0)
         self.formLayout_3.setVerticalSpacing(0)
-        self.formLayout_3.setContentsMargins(7, 0, 7, 0)
-        self.label_7 = QLabel(self.layoutWidget1)
-        self.label_7.setObjectName("label_7")
+        self.formLayout_3.setContentsMargins(0, -1, 0, 0)
+        self.InputSaveDir = QLabel(self.Record)
+        self.InputSaveDir.setObjectName("InputSaveDir")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(
+            self.InputSaveDir.sizePolicy().hasHeightForWidth()
+        )
+        self.InputSaveDir.setSizePolicy(sizePolicy2)
 
-        self.formLayout_3.setWidget(3, QFormLayout.LabelRole, self.label_7)
+        self.formLayout_3.setWidget(0, QFormLayout.FieldRole, self.InputSaveDir)
 
-        self.InputElapsedTime = QLabel(self.layoutWidget1)
-        self.InputElapsedTime.setObjectName("InputElapsedTime")
-
-        self.formLayout_3.setWidget(3, QFormLayout.FieldRole, self.InputElapsedTime)
-
-        self.label_8 = QLabel(self.layoutWidget1)
-        self.label_8.setObjectName("label_8")
-
-        self.formLayout_3.setWidget(4, QFormLayout.LabelRole, self.label_8)
-
-        self.InputNumSamples = QLabel(self.layoutWidget1)
-        self.InputNumSamples.setObjectName("InputNumSamples")
-
-        self.formLayout_3.setWidget(4, QFormLayout.FieldRole, self.InputNumSamples)
-
-        self.label_9 = QLabel(self.layoutWidget1)
-        self.label_9.setObjectName("label_9")
-
-        self.formLayout_3.setWidget(5, QFormLayout.LabelRole, self.label_9)
-
-        self.InputFolderSize = QLabel(self.layoutWidget1)
-        self.InputFolderSize.setObjectName("InputFolderSize")
-
-        self.formLayout_3.setWidget(5, QFormLayout.FieldRole, self.InputFolderSize)
-
-        self.label_6 = QLabel(self.layoutWidget1)
+        self.label_6 = QLabel(self.Record)
         self.label_6.setObjectName("label_6")
         sizePolicy3 = QSizePolicy(QSizePolicy.Fixed, QSizePolicy.Preferred)
         sizePolicy3.setHorizontalStretch(0)
@@ -305,70 +325,59 @@ class Ui_MainWindow(object):
         sizePolicy3.setHeightForWidth(self.label_6.sizePolicy().hasHeightForWidth())
         self.label_6.setSizePolicy(sizePolicy3)
 
-        self.formLayout_3.setWidget(1, QFormLayout.LabelRole, self.label_6)
+        self.formLayout_3.setWidget(0, QFormLayout.LabelRole, self.label_6)
 
-        self.InputOpenFolder = QPushButton(self.layoutWidget1)
+        self.InputElapsedTime = QLabel(self.Record)
+        self.InputElapsedTime.setObjectName("InputElapsedTime")
+
+        self.formLayout_3.setWidget(1, QFormLayout.FieldRole, self.InputElapsedTime)
+
+        self.label_7 = QLabel(self.Record)
+        self.label_7.setObjectName("label_7")
+
+        self.formLayout_3.setWidget(1, QFormLayout.LabelRole, self.label_7)
+
+        self.InputNumSamples = QLabel(self.Record)
+        self.InputNumSamples.setObjectName("InputNumSamples")
+
+        self.formLayout_3.setWidget(2, QFormLayout.FieldRole, self.InputNumSamples)
+
+        self.label_8 = QLabel(self.Record)
+        self.label_8.setObjectName("label_8")
+
+        self.formLayout_3.setWidget(2, QFormLayout.LabelRole, self.label_8)
+
+        self.InputFolderSize = QLabel(self.Record)
+        self.InputFolderSize.setObjectName("InputFolderSize")
+
+        self.formLayout_3.setWidget(3, QFormLayout.FieldRole, self.InputFolderSize)
+
+        self.label_9 = QLabel(self.Record)
+        self.label_9.setObjectName("label_9")
+
+        self.formLayout_3.setWidget(3, QFormLayout.LabelRole, self.label_9)
+
+        self.InputOpenFolder = QPushButton(self.Record)
         self.InputOpenFolder.setObjectName("InputOpenFolder")
-        sizePolicy4 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Preferred)
-        sizePolicy4.setHorizontalStretch(0)
-        sizePolicy4.setVerticalStretch(0)
-        sizePolicy4.setHeightForWidth(
+        sizePolicy1.setHeightForWidth(
             self.InputOpenFolder.sizePolicy().hasHeightForWidth()
         )
-        self.InputOpenFolder.setSizePolicy(sizePolicy4)
+        self.InputOpenFolder.setSizePolicy(sizePolicy1)
 
-        self.formLayout_3.setWidget(6, QFormLayout.FieldRole, self.InputOpenFolder)
+        self.formLayout_3.setWidget(4, QFormLayout.FieldRole, self.InputOpenFolder)
 
-        self.formLayout_2 = QFormLayout()
-        self.formLayout_2.setObjectName("formLayout_2")
-        self.formLayout_2.setLabelAlignment(Qt.AlignCenter)
-        self.formLayout_2.setFormAlignment(Qt.AlignLeading | Qt.AlignLeft | Qt.AlignTop)
-        self.formLayout_2.setContentsMargins(7, 0, 7, 5)
-        self.InputRecordStart = QPushButton(self.layoutWidget1)
-        self.InputRecordStart.setObjectName("InputRecordStart")
-        sizePolicy5 = QSizePolicy(QSizePolicy.Minimum, QSizePolicy.Minimum)
-        sizePolicy5.setHorizontalStretch(0)
-        sizePolicy5.setVerticalStretch(0)
-        sizePolicy5.setHeightForWidth(
-            self.InputRecordStart.sizePolicy().hasHeightForWidth()
-        )
-        self.InputRecordStart.setSizePolicy(sizePolicy5)
-        self.InputRecordStart.setMinimumSize(QSize(30, 10))
-
-        self.formLayout_2.setWidget(0, QFormLayout.LabelRole, self.InputRecordStart)
-
-        self.InputRecordStop = QPushButton(self.layoutWidget1)
-        self.InputRecordStop.setObjectName("InputRecordStop")
-        sizePolicy5.setHeightForWidth(
-            self.InputRecordStop.sizePolicy().hasHeightForWidth()
-        )
-        self.InputRecordStop.setSizePolicy(sizePolicy5)
-        self.InputRecordStop.setMinimumSize(QSize(10, 30))
-
-        self.formLayout_2.setWidget(0, QFormLayout.FieldRole, self.InputRecordStop)
-
-        self.formLayout_3.setLayout(0, QFormLayout.FieldRole, self.formLayout_2)
-
-        self.InputSaveDir = QLabel(self.layoutWidget1)
-        self.InputSaveDir.setObjectName("InputSaveDir")
-        sizePolicy6 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Preferred)
-        sizePolicy6.setHorizontalStretch(0)
-        sizePolicy6.setVerticalStretch(0)
-        sizePolicy6.setHeightForWidth(
-            self.InputSaveDir.sizePolicy().hasHeightForWidth()
-        )
-        self.InputSaveDir.setSizePolicy(sizePolicy6)
-
-        self.formLayout_3.setWidget(1, QFormLayout.FieldRole, self.InputSaveDir)
+        self.verticalLayout_4.addLayout(self.formLayout_3)
 
         self.verticalLayout.addWidget(self.Record)
 
         self.NoteBox = QGroupBox(self.centralwidget)
         self.NoteBox.setObjectName("NoteBox")
+        sizePolicy.setHeightForWidth(self.NoteBox.sizePolicy().hasHeightForWidth())
+        self.NoteBox.setSizePolicy(sizePolicy)
         self.gridLayout_4 = QGridLayout(self.NoteBox)
         self.gridLayout_4.setObjectName("gridLayout_4")
         self.gridLayout_4.setVerticalSpacing(0)
-        self.gridLayout_4.setContentsMargins(7, 0, 0, 0)
+        self.gridLayout_4.setContentsMargins(6, 0, 6, 0)
         self.formLayout_4 = QFormLayout()
         self.formLayout_4.setObjectName("formLayout_4")
         self.formLayout_4.setLabelAlignment(
@@ -418,11 +427,11 @@ class Ui_MainWindow(object):
 
         self.InputNote = QPlainTextEdit(self.NoteBox)
         self.InputNote.setObjectName("InputNote")
-        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
-        sizePolicy7.setHorizontalStretch(0)
-        sizePolicy7.setVerticalStretch(50)
-        sizePolicy7.setHeightForWidth(self.InputNote.sizePolicy().hasHeightForWidth())
-        self.InputNote.setSizePolicy(sizePolicy7)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.MinimumExpanding)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(50)
+        sizePolicy4.setHeightForWidth(self.InputNote.sizePolicy().hasHeightForWidth())
+        self.InputNote.setSizePolicy(sizePolicy4)
         self.InputNote.setMinimumSize(QSize(0, 25))
 
         self.verticalLayout_3.addWidget(self.InputNote)
@@ -445,13 +454,13 @@ class Ui_MainWindow(object):
 
         self.InputPurpose = QPlainTextEdit(self.NoteBox)
         self.InputPurpose.setObjectName("InputPurpose")
-        sizePolicy8 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
-        sizePolicy8.setHorizontalStretch(0)
-        sizePolicy8.setVerticalStretch(0)
-        sizePolicy8.setHeightForWidth(
+        sizePolicy5 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy5.setHorizontalStretch(0)
+        sizePolicy5.setVerticalStretch(0)
+        sizePolicy5.setHeightForWidth(
             self.InputPurpose.sizePolicy().hasHeightForWidth()
         )
-        self.InputPurpose.setSizePolicy(sizePolicy8)
+        self.InputPurpose.setSizePolicy(sizePolicy5)
         self.InputPurpose.setMinimumSize(QSize(0, 25))
         self.InputPurpose.setMaximumSize(QSize(16777215, 50))
         # self.InputPurpose.setTabStopWidth(80)
@@ -469,6 +478,11 @@ class Ui_MainWindow(object):
 
         self.InputPlant = QLineEdit(self.NoteBox)
         self.InputPlant.setObjectName("InputPlant")
+        sizePolicy6 = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Fixed)
+        sizePolicy6.setHorizontalStretch(0)
+        sizePolicy6.setVerticalStretch(0)
+        sizePolicy6.setHeightForWidth(self.InputPlant.sizePolicy().hasHeightForWidth())
+        self.InputPlant.setSizePolicy(sizePolicy6)
 
         self.horizontalLayout_2.addWidget(self.InputPlant)
 
@@ -480,13 +494,13 @@ class Ui_MainWindow(object):
 
         self.GraphicsLayoutWidget = GraphicsLayoutWidget(self.centralwidget)
         self.GraphicsLayoutWidget.setObjectName("GraphicsLayoutWidget")
-        sizePolicy9 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
-        sizePolicy9.setHorizontalStretch(1)
-        sizePolicy9.setVerticalStretch(0)
-        sizePolicy9.setHeightForWidth(
+        sizePolicy7 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy7.setHorizontalStretch(1)
+        sizePolicy7.setVerticalStretch(0)
+        sizePolicy7.setHeightForWidth(
             self.GraphicsLayoutWidget.sizePolicy().hasHeightForWidth()
         )
-        self.GraphicsLayoutWidget.setSizePolicy(sizePolicy9)
+        self.GraphicsLayoutWidget.setSizePolicy(sizePolicy7)
 
         self.gridLayout.addWidget(self.GraphicsLayoutWidget, 0, 2, 1, 1)
 
@@ -537,11 +551,11 @@ class Ui_MainWindow(object):
         self.Measurement.setTitle(
             QCoreApplication.translate("MainWindow", "Measurement", None)
         )
-        self.InputMeasureStart.setText(
-            QCoreApplication.translate("MainWindow", "start", None)
-        )
         self.InputMeasureStop.setText(
             QCoreApplication.translate("MainWindow", "stop", None)
+        )
+        self.InputMeasureStart.setText(
+            QCoreApplication.translate("MainWindow", "start", None)
         )
         self.RecordSettings.setTitle(
             QCoreApplication.translate("MainWindow", "Record Settings", None)
@@ -557,22 +571,6 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "change folder", None)
         )
         self.Record.setTitle(QCoreApplication.translate("MainWindow", "Record", None))
-        self.label_7.setText(
-            QCoreApplication.translate("MainWindow", "elapsed time", None)
-        )
-        self.InputElapsedTime.setText("")
-        self.label_8.setText(
-            QCoreApplication.translate("MainWindow", "nubmer of samples", None)
-        )
-        self.InputNumSamples.setText("")
-        self.label_9.setText(
-            QCoreApplication.translate("MainWindow", "folder size", None)
-        )
-        self.InputFolderSize.setText("")
-        self.label_6.setText(QCoreApplication.translate("MainWindow", "start", None))
-        self.InputOpenFolder.setText(
-            QCoreApplication.translate("MainWindow", "open folder", None)
-        )
         self.InputRecordStart.setText(
             QCoreApplication.translate("MainWindow", "start", None)
         )
@@ -580,6 +578,22 @@ class Ui_MainWindow(object):
             QCoreApplication.translate("MainWindow", "stop", None)
         )
         self.InputSaveDir.setText("")
+        self.label_6.setText(QCoreApplication.translate("MainWindow", "start", None))
+        self.InputElapsedTime.setText("")
+        self.label_7.setText(
+            QCoreApplication.translate("MainWindow", "elapsed time", None)
+        )
+        self.InputNumSamples.setText("")
+        self.label_8.setText(
+            QCoreApplication.translate("MainWindow", "nubmer of samples", None)
+        )
+        self.InputFolderSize.setText("")
+        self.label_9.setText(
+            QCoreApplication.translate("MainWindow", "folder size", None)
+        )
+        self.InputOpenFolder.setText(
+            QCoreApplication.translate("MainWindow", "open folder", None)
+        )
         self.NoteBox.setTitle(QCoreApplication.translate("MainWindow", "Note", None))
         self.label_11.setText(QCoreApplication.translate("MainWindow", "place", None))
         self.label_12.setText(
