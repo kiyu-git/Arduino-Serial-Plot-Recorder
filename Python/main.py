@@ -9,8 +9,8 @@ from os.path import expanduser
 import numpy as np
 import pyqtgraph as pg
 import serial
-from PySide6 import QtCore, QtWidgets
-from PySide6.QtCore import Signal
+from PySide2 import QtCore, QtWidgets
+from PySide2.QtCore import Signal
 
 import tools
 from UI.Ui_Dialog import Ui_Dialog
@@ -562,4 +562,4 @@ if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
     myWin = MainWindow()
     myWin.show_windows()
-    sys.exit(app.exec())
+    sys.exit(app.exec_())
