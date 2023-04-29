@@ -9,10 +9,9 @@ from os.path import expanduser
 import numpy as np
 import pyqtgraph as pg
 import serial
+import tools
 from PyQt5 import QtCore, QtWidgets, uic
 from PyQt5.QtCore import pyqtSignal
-
-import tools
 
 """
 Set Logger
@@ -176,7 +175,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
     def measure_start(self):
         try:
-            self.arduino = serial.Serial(self.serial_port, 2000000)
+            self.arduino = serial.Serial(self.serial_port, 9600)
 
             self.store_data = StoreData(self.arduino, self.settings)
             self.store_data.singal.connect(lambda errorCode: self.on_error(errorCode))
