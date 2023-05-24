@@ -129,7 +129,7 @@ Note パネルは測定時のメモのためのパネルです。Note データ�
 『[植物生体電位測定をオープンにするプロジェクト](https://docs.google.com/presentation/d/1Tm0e-mBNrTchN6YlGpvvomUZfy79yOtrTSNHG-l_jFg/edit?usp=sharing)に関連する以下のリポジトリと組み合わせることによって、植物生体電位を測定することが可能です。
 
 - 植物生体電位解析器 : https://github.com/kiyu-git/Plant-Bioelectric-Potential-Sensor
-- 測定アプリケーション : https://github.com/kiyu-git/-Arduino-Serial-Plot-Recorder
+- 測定アプリケーション : https://github.com/kiyu-git/Arduino-Serial-Plot-Recorder
 - 解析アプリケーション : https://github.com/kiyu-git/Arduino-Sensor-Data-Viewer
 - 照明スイッチの自動化 : https://github.com/kiyu-git/Arduino-Python-Serial-Control-Example
 
